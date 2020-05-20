@@ -1,14 +1,14 @@
 import React from 'react';
 import { StyleSheet, Text, View, TouchableOpacity } from 'react-native';
-import { Entypo } from '@expo/vector-icons';
+import { Feather } from '@expo/vector-icons';
 
-const CustomButton = ({ onPressEvent }) => {
+const SendButton = () => {
     return (
-        <TouchableOpacity activeOpacity={0.7} onPress={onPressEvent}>
+        <TouchableOpacity activeOpacity={0.7}>
             <View style={styles.buttonCont}>
-                <Text style={styles.buttonText}>See my work</Text>
+                <Text style={styles.buttonText}>Send now!</Text>
                 <View>
-                    <Entypo name="eye" size={24} color="white"/>
+                    <Feather name="send" size={16} color="white"/>
                 </View>
             </View>
         </TouchableOpacity>
@@ -18,8 +18,8 @@ const CustomButton = ({ onPressEvent }) => {
 const styles = StyleSheet.create({
     buttonCont: {
         flexDirection: 'row',
-        width: '62%',
-        alignSelf: 'center',
+        width: 150,
+        marginTop: 10,
         padding: 15,
         backgroundColor: 'cornflowerblue',
         justifyContent: 'space-between'
@@ -27,13 +27,9 @@ const styles = StyleSheet.create({
 
     buttonText: {
         color: 'white',
-        fontSize: 20,
+        fontSize: 16,
         fontFamily: 'serif',
     }, 
-
-    buttonIcon: {
-        
-    }
 })
 
-export default CustomButton;
+export default SendButton;

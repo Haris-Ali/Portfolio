@@ -1,34 +1,17 @@
 import React from 'react';
 import { NavigationContainer } from '@react-navigation/native'
-import { createStackNavigator } from '@react-navigation/stack';
 import { createDrawerNavigator } from '@react-navigation/drawer';
-import { createMaterialBottomTabNavigator } from '@react-navigation/material-bottom-tabs';
 
 
-import { AntDesign } from '@expo/vector-icons';
 import { Entypo } from '@expo/vector-icons';
 
 
-import HomeScreen from './components/HomeScreen'
+import MainTabScreen from './screens/MainTabScreen'
 import Portfolio from './components/Portfolio'
 import Skills from './components/Skills'
 import About from './components/About'
 import Hire from './components/Hire'
 
-
-/*const Tab = createMaterialBottomTabNavigator();
-
-function BottomNav() {
-  return (
-    <Tab.Navigator>
-      <Tab.Screen name="Home" component={HomeScreen} />
-      <Tab.Screen name="Portfolio" component={HomeScreen} />
-      <Tab.Screen name="Skills" component={SettingsScreen} />
-      <Tab.Screen name="Hire Me" component={SettingsScreen} />
-    </Tab.Navigator>
-  );
-}
-*/
 
 const Drawer = createDrawerNavigator()
 
@@ -43,7 +26,7 @@ function HamburgerMenu() {
     >
         <Drawer.Screen 
           name="Home" 
-          component={StackScreens}
+          component={MainTabScreen}
           options={{
             drawerIcon: () => <Entypo name="home" size={24} color="black"/> 
           }}  
@@ -77,34 +60,6 @@ function HamburgerMenu() {
           }}  
         />
     </Drawer.Navigator>
-  )
-}
-
-const Stack = createStackNavigator()
-
-function StackScreens() {
-  return (
-    <Stack.Navigator
-      initialRouteName={"Home"}
-      screenOptions={({ navigation }) => ({
-        headerStyle: {
-          backgroundColor: '#121617',
-          height: 100
-        },
-        headerTintColor: 'white',
-        headerTitleStyle: {
-          fontFamily: 'serif',
-          fontSize: 32,
-          letterSpacing: 3,
-          marginLeft: 20,
-        },
-        headerTitle: 'HA',
-        headerRight: () => <AntDesign 
-        name="bars" size={32} color="white" style={{marginRight: 20}} onPress={() => {navigation.openDrawer()}}/>
-      })}
-    >
-      <Stack.Screen name="Home" component={HomeScreen}/> 
-    </Stack.Navigator>
   )
 }
 
